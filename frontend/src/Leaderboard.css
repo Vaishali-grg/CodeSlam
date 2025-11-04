@@ -1,0 +1,52 @@
+/* In src/Leaderboard.css */
+.leaderboard-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 20px;
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.loading {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 50px;
+  color: #555;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #3498db;
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+td:first-child {
+  font-weight: bold;
+  color: #3498db;
+  width: 50px;
+}
