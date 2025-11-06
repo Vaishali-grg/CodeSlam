@@ -67,8 +67,8 @@ const Footer = () => {
           <div className="flex flex-col md:items-end items-start space-y-3">
             <div className="text-gray-300 text-sm md:text-right leading-relaxed">
               <p className="font-bold text-white text-lg mb-1">Event Coordinators</p>
-              <p>Sparsh Mittal: <span className="text-[#ffb300]">+91 82640 96826</span></p>
-              <p>Harsh Kumar Sahu: <span className="text-[#ffb300]">+91 79858 45884</span></p>
+              <p>Khushleen Kaur<span className="text-[#ffb300]">+91 7087473219</span></p>
+              <p>Karunya Gupta <span className="text-[#ffb300]">+91 9805946982</span></p>
               <p className="mt-1">
                 Email: <span className="text-[#ffb300]">ieee@chitkara.edu.in</span>
               </p>

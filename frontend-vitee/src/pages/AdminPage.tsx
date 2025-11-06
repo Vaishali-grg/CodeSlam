@@ -1,4 +1,3 @@
-// src/pages/AdminPage.jsx
 import { supabase } from '../supabaseClient';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -79,6 +78,7 @@ function AdminPage() {
   };
 
   const handleDeleteTeam = async (teamId, teamName) => {
+    // This is the original code, as requested
     if (window.confirm(`Are you sure you want to delete "${teamName}"?`)) {
       const { error } = await supabase
         .from('teams')
@@ -104,98 +104,106 @@ function AdminPage() {
   const labelClasses = "block text-sm font-bold text-accent-foreground mb-2";
   
   return (
-    // --- Main Page Container ---
-    <div className="w-full max-w-4xl mx-auto p-8">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-4xl text-coc-yellow font-bold">Admin Dashboard</h1>
-        <button 
-          onClick={handleLogout}
-          className="btn-3d btn-3d-orange px-6 py-2 rounded-lg text-white font-bold"
-        >
-          Log Out
-        </button>
-      </div>
-      <p className="text-xl text-muted-foreground mb-8">Welcome, Superadmin!</p>
+    // --- THIS IS THE NEW OVERLAY WRAPPER ---
+    // It covers the screen, sits under the navbar (z-40),
+    // and adds the blur effect. It's scrollable.
+    <div className="fixed inset-0 z-40 overflow-y-auto bg-black/80 backdrop-blur-sm">
       
-      <hr className="border-border opacity-30 my-8" />
+      {/* --- Main Page Container --- */}
+      {/* pt-32 adds padding to clear your fixed navbar */}
+      <div className="w-full max-w-4xl mx-auto p-8 pt-32 pb-24">
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-4xl text-coc-yellow font-bold">Admin Dashboard</h1>
+          <button 
+            onClick={handleLogout}
+            className="btn-3d btn-3d-orange px-6 py-2 rounded-lg text-white font-bold"
+          >
+            Log Out
+          </button>
+        </div>
+        <p className="text-xl text-muted-foreground mb-8">Welcome, Superadmin!</p>
+        
+        <hr className="border-border opacity-30 my-8" />
 
-      {/* --- Create Team Form --- */}
-      <h2 className="text-3xl text-coc-yellow font-bold mb-4">Create New Team</h2>
-      <form 
-        onSubmit={handleCreateTeam}
-        className="card-coc bg-card p-6 rounded-2xl flex flex-col md:flex-row items-end gap-6"
-      >
-        <div className="flex-grow w-full">
-          <label className={labelClasses}>Team Name:</label>
-          <input 
-            type="text" 
-            className={inputClasses}
-            value={newTeamName} 
-            onChange={(e) => setNewTeamName(e.target.value)} 
-            required
-          />
-        </div>
-        <div className="w-full md:w-48">
-          <label className={labelClasses}>Initial Gems:</label>
-          <input 
-            type="number" 
-            className={inputClasses}
-            value={newTeamGems} 
-            onChange={(e) => setNewTeamGems(parseInt(e.target.value))} 
-          />
-        </div>
-        <button 
-          type="submit" 
-          className="btn-3d btn-3d-green px-6 py-3 rounded-lg text-white font-bold w-full md:w-auto"
+        {/* --- Create Team Form --- */}
+        <h2 className="text-3xl text-coc-yellow font-bold mb-4">Create New Team</h2>
+        <form 
+          onSubmit={handleCreateTeam}
+          className="card-coc bg-card p-6 rounded-2xl flex flex-col md:flex-row items-end gap-6"
         >
-          Create Team
-        </button>
-      </form>
-      
-      <hr className="border-border opacity-30 my-12" />
+          <div className="flex-grow w-full">
+            <label className={labelClasses}>Team Name:</label>
+            <input 
+              type="text" 
+              className={inputClasses}
+              value={newTeamName} 
+              onChange={(e) => setNewTeamName(e.target.value)} 
+              required
+            />
+          </div>
+          <div className="w-full md:w-48">
+            <label className={labelClasses}>Initial Gems:</label>
+            <input 
+              type="number" 
+              className={inputClasses}
+              value={newTeamGems} 
+              onChange={(e) => setNewTeamGems(parseInt(e.target.value))} 
+            />
+          </div>
+          <button 
+            type="submit" 
+            className="btn-3d btn-3d-green px-6 py-3 rounded-lg text-white font-bold w-full md:w-auto"
+          >
+            Create Team
+          </button>
+        </form>
+        
+        <hr className="border-border opacity-30 my-12" />
 
-      {/* --- Manage Existing Teams --- */}
-      <h2 className="text-3xl text-coc-yellow font-bold mb-6">Manage Teams</h2>
-      {loading ? (
-        <p className="text-lg text-muted-foreground">Loading teams...</p>
-      ) : (
-        <div className="flex flex-col gap-6">
-          {teams.map((team) => (
-            <div key={team.id} className="card-coc bg-card p-6 rounded-2xl">
-              
-              <h4 className="text-2xl text-white font-bold mb-4">{team.name}</h4>
-              
-              {/* Update Gems Form */}
-              <form 
-                onSubmit={(e) => handleUpdateGems(e, team.id)}
-                className="flex flex-col md:flex-row items-center gap-4 mb-4"
-              >
-                <label className="text-lg text-accent-foreground font-semibold">Gems:</label>
-                <input 
-                  type="number" 
-                  className={`${inputClasses} flex-grow`}
-                  value={updateGems[team.id] || 0} 
-                  onChange={(e) => handleGemChange(team.id, e.g.target.value)}
-                />
-                <button 
-                  type="submit"
-                  className="btn-3d btn-3d-green px-5 py-3 rounded-lg text-white font-bold w-full md:w-auto"
+        {/* --- Manage Existing Teams --- */}
+        <h2 className="text-3xl text-coc-yellow font-bold mb-6">Manage Teams</h2>
+        {loading ? (
+          <p className="text-lg text-muted-foreground">Loading teams...</p>
+        ) : (
+          <div className="flex flex-col gap-6">
+            {teams.map((team) => (
+              <div key={team.id} className="card-coc bg-card p-6 rounded-2xl">
+                
+                <h4 className="text-2xl text-white font-bold mb-4">{team.name}</h4>
+                
+                {/* Update Gems Form */}
+                <form 
+                  onSubmit={(e) => handleUpdateGems(e, team.id)}
+                  className="flex flex-col md:flex-row items-center gap-4 mb-4"
                 >
-                  Update Gems
+                  <label className="text-lg text-accent-foreground font-semibold">Gems:</label>
+                  <input 
+                    type="number" 
+                    className={`${inputClasses} flex-grow`}
+                    value={updateGems[team.id] || 0} 
+                    // Fixed the typo from e.g.target.value
+                    onChange={(e) => handleGemChange(team.id, e.target.value)}
+                  />
+                  <button 
+                    type="submit"
+                    className="btn-3d btn-3d-green px-5 py-3 rounded-lg text-white font-bold w-full md:w-auto"
+                  >
+                    Update Gems
+                  </button>
+                </form>
+                
+                {/* Delete Button */}
+                <button 
+                  onClick={() => handleDeleteTeam(team.id, team.name)}
+                  className="btn-3d btn-3d-orange px-5 py-2 rounded-lg text-white font-bold"
+                >
+                  Delete "{team.name}"
                 </button>
-              </form>
-              
-              {/* Delete Button */}
-              <button 
-                onClick={() => handleDeleteTeam(team.id, team.name)}
-                className="btn-3d btn-3d-orange px-5 py-2 rounded-lg text-white font-bold"
-              >
-                Delete "{team.name}"
-              </button>
-            </div>
-          ))}
-        </div>
-      )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
