@@ -1,36 +1,49 @@
-import { Routes, Route } from 'react-router-dom';
-import './App.css';
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 
-// --- Your New Public Pages ---
-// (You will need to create these files)
-import Index from "./pages/Index"; 
-import RulebookPage from "./pages/Rulebook"; 
-import NotFound from "./pages/NotFound"; 
+import Index from "./pages/Index";
+import LeaderboardPage from "./pages/Leaderboard";
+import RulebookPage from "./pages/Rulebook";
+import TimerPage from "./pages/Timer";
+import NotFound from "./pages/NotFound";
 
-// --- Our Existing Pages ---
-import LeaderboardPage from './pages/LeaderboardPage'; // This is our original leaderboard
-import LoginPage from './pages/LoginPage';
-import AdminPage from './pages/AdminPage';
-import ProtectedRoute from './components/ProtectedRoute';
+import LoginPage from "./pages/LoginPage";
+import AdminPage from "./pages/AdminPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-function App() {
-  return (
-    <Routes>
-      {/* Your New Public Routes */}
-      <Route path="/" element={<Index />} />
-      <Route path="/leaderboard" element={<LeaderboardPage />} />
-      <Route path="/rulebook" element={<RulebookPage />} />
+const queryClient = new QueryClient();
 
-      {/* Our Admin & Login Routes */}
-      <Route path="/login" element={<LoginPage />} />
-      <Route element={<ProtectedRoute />}>
-        <Route path="/admin" element={<AdminPage />} />
-      </Route>
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
 
-      {/* Your Catch-All "Not Found" Route */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  );
-}
+          {/* PUBLIC ROUTES */}
+          <Route path="/" element={<Index />} />
+          <Route path="/leaderboard" element={<LeaderboardPage />} />
+          <Route path="/rulebook" element={<RulebookPage />} />
+          <Route path="/timer" element={<TimerPage />} />
+
+          {/*Other Routes*/}
+          <Route path="/login" element={<LoginPage />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/admin" element={<AdminPage />} />
+          </Route>
+
+          <Route path="*" element={<NotFound />} />
+
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;

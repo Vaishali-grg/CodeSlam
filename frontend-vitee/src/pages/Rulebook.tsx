@@ -369,22 +369,22 @@ export default function RulebookPage() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <div className="sidebar-widget">
+          {/* <div className="sidebar-widget">
             <h4>Event Status</h4>
             <p>Clan War begins in</p>
             <div className={`countdown ${isExpired ? 'expired' : ''}`}>{countdownDisplay}</div> 
 
-          </div>
+          </div> */}
           
-          <div className="sidebar-widget">
+          {/* <div className="sidebar-widget">
             <h4>Quick Tips</h4>
             <ul>
               <li>Push commits early and often.</li>
               <li>Use Gems strategically in Clan War.</li>
               <li>Follow repo naming CORRECTLY.</li>
             </ul>
-          </div>
-          {/* <div className="sidebar-widget">
+          </div> */}
+          <div className="sidebar-widget">
             <h4>Contact</h4>
             <h5 className="font-bold text-white text-sm mb-1">Event Cordinators</h5>
             <ul>
@@ -394,20 +394,9 @@ export default function RulebookPage() {
                 Email: <span className="text-[#ffb300]">ieee@chitkara.edu.in</span>
               </p>
             </ul>
-          </div> */}
-
-          <div className="sidebar-widget">
-            <h4>Sponsors</h4>
-            {/* Replace with actual logos */}
-            <div className="sponsor-logos">
-              <span>[shoutlo]</span>
-              <span>[SKYJUMPER]</span>
-              <span>[GOLZZA]</span>
-              <span>[my equation]</span>
-              <span>[Give My Certificate]</span>
-
-            </div>
           </div>
+
+          
         </motion.aside>
 
       </main>

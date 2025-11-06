@@ -1,4 +1,4 @@
-import { Trophy, Shield } from "lucide-react";
+import { Trophy } from "lucide-react";
 import heroCocBright from "@/assets/hero-coc-bright.jpg";
 import bgImage from "@/assets/bg wallpaper.jpg";
 
