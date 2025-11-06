@@ -7,5 +7,4 @@ import type { Database } from './types/supabase' // <-- We'll create this next
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-// Use the Database type
 export const supabase = createClient<Database>(supabaseUrl, supabaseKey)
