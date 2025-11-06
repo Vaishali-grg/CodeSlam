@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import LeaderboardPage from "./pages/Leaderboard";
 import RulebookPage from "./pages/Rulebook";
 import NotFound from "./pages/NotFound";
+import TimerPage from "./pages/Timer";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/leaderboard" element={<LeaderboardPage />} />
+          <Route path="/timer" element={<TimerPage />} />
           <Route path="/rulebook" element={<RulebookPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

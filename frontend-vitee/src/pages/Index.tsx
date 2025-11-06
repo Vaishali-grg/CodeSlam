@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import SuperuserLoginModal from "@/components/SuperuserLoginModal";
 import Rulebook from "@/components/Rulebook";
 import Footer from "@/components/Footer";
+import TimerPage from "./Timer";
 
 const Index = () => {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -30,6 +31,9 @@ const Index = () => {
         onSuperuserLogin={() => setLoginModalOpen(true)}
       />
       
+      {/* Full-size timer page shown directly after hero to lengthen the main page */}
+      <TimerPage />
+
       <Rulebook />
       
       <Footer />

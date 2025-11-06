@@ -1,6 +1,14 @@
 import { Instagram } from "lucide-react";
 
 const Footer = () => {
+  // Array for sponsor logos
+  const sponsors = [
+    { src: '/codecrafters.png', alt: 'CodeCrafters', url: 'https://codecrafters.io' },
+    { src: '/essmey.png', alt: 'Essmey', url: 'https://www.essmey.in/' },
+    { src: '/sipsmash.jpg', alt: 'SipSmash', url: 'https://www.instagram.com/sip.and.smash/' },
+    { src: '/intbuddy.png', alt: 'IntBuddy', url: 'https://interviewbuddy.net/' },
+  ];
+
   return (
     <footer className="relative bg-[#0a0a0a] text-white overflow-hidden">
       {/* Background effects */}
@@ -79,9 +87,39 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom text */}
-        <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-500">
-          © 2025 IEEE Chapter — Built for warriors, by warriors.
+        {/* Bottom section with Sponsors and Copyright */}
+        <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-500">
+          
+          {/* Sponsor Section */}
+          <div className="mb-6">
+            <h4 className="text-base font-semibold text-gray-400 uppercase tracking-wider mb-4">
+              Our Sponsors
+            </h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-4 max-w-lg mx-auto items-center">
+              {sponsors.map((sponsor) => (
+                <a
+                  key={sponsor.alt}
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${sponsor.alt}`}
+                  className="flex items-center justify-center"
+                >
+                  <img
+                    src={sponsor.src}
+                    alt={sponsor.alt}
+                    className="max-h-10 w-auto object-contain mx-auto filter grayscale hover:grayscale-0 brightness-75 hover:brightness-100 transition-all duration-300"
+                    onError={(e) => {
+                      // Fallback for broken images
+                      const target = e.currentTarget as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+          <p>© 2025 IEEE Chapter — Built for warriors, by warriors.</p>
         </div>
       </div>
 
