@@ -21,14 +21,16 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar 
-        onSuperuserClick={() => setLoginModalOpen(true)}
+        // onSuperuserClick={() => setLoginModalOpen(true)}
         onLeaderboardClick={() => navigate('/leaderboard')}
         onRulebookClick={() => navigate('/rulebook')}
+        onSuperuserClick={() => navigate('/admin')} 
       />
       
       <Hero 
         onViewLeaderboard={() => navigate('/leaderboard')}
-        onSuperuserLogin={() => setLoginModalOpen(true)}
+        // onSuperuserLogin={() => setLoginModalOpen(true)}
+        onSuperuserLogin={() => navigate('/admin')} 
       />
       
       {/* Full-size timer page shown directly after hero to lengthen the main page */}

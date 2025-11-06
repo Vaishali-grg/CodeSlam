@@ -30,7 +30,7 @@ const Navbar = ({ onSuperuserClick, onLeaderboardClick, onRulebookClick }: Navba
         <div className="hidden md:flex items-center gap-6">
           <NavButton label="Leaderboard" icon={<Trophy className="w-4 h-4" />} onClick={onLeaderboardClick} />
           <NavButton label="Rulebook" icon={<BookOpen className="w-4 h-4" />} onClick={onRulebookClick} />
-          {/* <NavButton label="Login" icon={<Shield className="w-4 h-4" />} onClick={onSuperuserClick} primary /> */}
+          <NavButton label="Admin" icon={<Shield className="w-4 h-4" />} onClick={onSuperuserClick} primary />
         </div>
 
         {/* Mobile Toggle */}
@@ -47,7 +47,7 @@ const Navbar = ({ onSuperuserClick, onLeaderboardClick, onRulebookClick }: Navba
         <div className="md:hidden flex flex-col gap-3 px-6 py-4 bg-black/95 border-t border-yellow-500 animate-fadeIn">
           <NavButton label="Leaderboard" icon={<Trophy className="w-4 h-4" />} onClick={() => { onLeaderboardClick(); setMenuOpen(false); }} />
           <NavButton label="Rulebook" icon={<BookOpen className="w-4 h-4" />} onClick={() => { onRulebookClick(); setMenuOpen(false); }} />
-          {/* <NavButton label="Login" icon={<Shield className="w-4 h-4" />} onClick={() => { onSuperuserClick(); setMenuOpen(false); }} primary /> */}
+          <NavButton label="Login" icon={<Shield className="w-4 h-4" />} onClick={() => { onSuperuserClick(); setMenuOpen(false); }} primary />
         </div>
       )}
     </nav>

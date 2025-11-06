@@ -23,7 +23,7 @@ function LoginPage() {
     });
 
     if (error) {
-      alert(error.message);
+      alert(error.error_description || error.message);
     } else {
       navigate('/admin');
     }

@@ -2,15 +2,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Index from "./pages/Index";
-import LeaderboardPage from "./pages/Leaderboard";
+import LeaderboardPage from "./pages/LeaderboardPage";
 import RulebookPage from "./pages/Rulebook";
 import TimerPage from "./pages/Timer";
 import NotFound from "./pages/NotFound";
-
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -22,26 +21,24 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Routes>
+      <Routes>
+        {/* PUBLIC ROUTES */}
+        <Route path="/" element={<Index />} />
+        <Route path="/leaderboard" element={<LeaderboardPage />} />
+        <Route path="/rulebook" element={<RulebookPage />} />
+        <Route path="/timer" element={<TimerPage />} />
 
-          {/* PUBLIC ROUTES */}
-          <Route path="/" element={<Index />} />
-          <Route path="/leaderboard" element={<LeaderboardPage />} />
-          <Route path="/rulebook" element={<RulebookPage />} />
-          <Route path="/timer" element={<TimerPage />} />
+        {/* OTHER ROUTES */}
+        <Route path="/login" element={<LoginPage />} />
 
-          {/*Other Routes*/}
-          <Route path="/login" element={<LoginPage />} />
+        {/* PROTECTED ROUTES */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/admin" element={<AdminPage />} />
+        </Route>
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="/admin" element={<AdminPage />} />
-          </Route>
-
-          <Route path="*" element={<NotFound />} />
-
-        </Routes>
-      </BrowserRouter>
+        {/* 404 PAGE */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </TooltipProvider>
   </QueryClientProvider>
 );
