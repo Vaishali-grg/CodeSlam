@@ -1,91 +1,92 @@
-import { Shield } from "lucide-react";
-import { Mail } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[#0a0a0a] text-white pt-24 pb-10 overflow-hidden">
-      {/* Floating characters above footer */}
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 flex gap-10 z-10">
-        <img
-          src="/assets/dragon.png"
-          alt="dragon"
-          className="w-40 animate-float"
-        />
-        <img
-          src="/assets/barbarian.png"
-          alt="barbarian"
-          className="w-36 animate-float delay-200"
-        />
-        <img
-          src="/assets/archer.png"
-          alt="archer"
-          className="w-32 animate-float delay-300"
-        />
-        <img
-          src="/assets/wizard.png"
-          alt="wizard"
-          className="w-32 animate-float delay-100"
-        />
+    <footer className="relative bg-[#0a0a0a] text-white overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#111111] to-[#1a1a1a] opacity-90"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,179,0,0.15)_0%,transparent_70%)]"></div>
+        <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-10"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-20">
-        <div className="grid md:grid-cols-3 gap-10">
-          {/* Newsletter */}
-          <div className="bg-[#161616] p-6 rounded-2xl flex flex-col items-start justify-between max-w-sm">
-            <img src="/assets/giant.png" alt="giant" className="w-24 mb-4" />
-            <h2 className="text-2xl font-bold mb-2">Subscribe to our newsletter</h2>
-            <div className="flex w-full bg-white rounded-full overflow-hidden mt-3">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-4 py-2 text-black outline-none"
-              />
-              <button className="bg-[#ffb300] text-black px-4 font-bold">
-                <Mail className="w-4 h-4 inline-block mr-1" /> Go
-              </button>
-            </div>
-          </div>
-
-          {/* Links */}
-          <div className="flex flex-col items-center justify-center text-center space-y-3">
-            <div className="space-x-6 text-lg font-semibold">
-              <a href="#" className="hover:text-[#ffb300]">How to Play</a>
-              <a href="#" className="hover:text-[#ffb300]">Events</a>
-              <a href="#" className="hover:text-[#ffb300]">Supercell ID</a>
-            </div>
-            <div className="text-sm text-gray-400 space-y-1 mt-2">
-              <p>Parent’s Guide</p>
-              <p>Terms of Services</p>
-              <p>Fair Play Policy</p>
-            </div>
-          </div>
-
-          {/* Logo + Contact */}
-          <div className="flex flex-col items-center md:items-end justify-center space-y-2">
-            <div className="flex items-center gap-3">
-              <Shield className="w-10 h-10 text-[#ffb300]" />
-              <div>
-                <p className="font-black text-[#ffb300] text-lg">IEEE CODE SLAM</p>
-                <p className="text-sm text-gray-300 font-bold">Battle of Algorithms</p>
+      <div className="container mx-auto px-6 py-12 relative z-10">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          
+          {/* Left Section */}
+          <div className="flex flex-col items-start space-y-3">
+            
+            {/* Crest + Title + Mini Pekka */}
+            <div className="flex items-center gap-4">
+              {/* Crest */}
+              <div className="p-2 rounded-xl bg-[#1a1a1a] border border-[#ffb300]/30 hover:shadow-[0_0_15px_#ffb300]/40 transition-shadow">
+                <img
+                  src="/crest-emblem.png"
+                  alt="IEEE Crest Emblem"
+                  className="w-12 h-12 object-contain"
+                />
               </div>
+
+              {/* Text */}
+              <div>
+                <h2 className="text-xl md:text-2xl font-black text-[#ffb300] tracking-wider">
+                  IEEE CODE SLAM
+                </h2>
+                <p className="text-gray-400 font-medium text-sm">The Grand Code Off</p>
+              </div>
+
+              {/* Mini Pekka */}
+              <img
+                src="/mini-pekka.png"
+                alt="Mini Pekka Mascot"
+                className="w-14 md:w-16 drop-shadow-[0_0_12px_rgba(255,179,0,0.5)] select-none"
+              />
             </div>
-            <div className="text-right text-gray-400 text-sm">
-              <p>hello@designmonks.co</p>
-              <p>+1 980 971-24-19</p>
+
+            <p className="text-gray-400 max-w-md text-sm md:text-base leading-relaxed">
+              Where coders clash in logic, speed, and innovation. Push your limits. Rewrite the rules.
+            </p>
+
+            <a
+              href="/rulebook"
+              className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-[#3b2209] font-extrabold px-10 py-4 rounded-2xl text-xl border-4 border-yellow-300 shadow-[0_6px_0_#5c2d00,0_8px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(255,200,0,0.5)] transition-all"
+            >
+              View Rulebook
+            </a>
+          </div>
+
+          {/* Right Section */}
+          <div className="flex flex-col md:items-end items-start space-y-3">
+            <div className="text-gray-300 text-sm md:text-right leading-relaxed">
+              <p className="font-bold text-white text-lg mb-1">Event Coordinators</p>
+              <p>Sparsh Mittal: <span className="text-[#ffb300]">+91 82640 96826</span></p>
+              <p>Harsh Kumar Sahu: <span className="text-[#ffb300]">+91 79858 45884</span></p>
+              <p className="mt-1">
+                Email: <span className="text-[#ffb300]">ieee@chitkara.edu.in</span>
+              </p>
             </div>
-            <div className="flex gap-4 text-white mt-2">
-              <i className="fab fa-facebook-f"></i>
-              <i className="fab fa-instagram"></i>
-              <i className="fab fa-youtube"></i>
+
+            <div className="flex gap-3 mt-2">
+              <a
+                href="https://www.instagram.com/ieeeciet/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-[#1a1a1a] border border-[#ffb300]/30 hover:bg-[#ffb300] hover:text-black transition-all"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-700 mt-10 pt-5 text-center text-sm text-gray-500">
-          © 2025 IEEE Chapter. Built for warriors, by warriors.
+        {/* Bottom text */}
+        <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-500">
+          © 2025 IEEE Chapter — Built for warriors, by warriors.
         </div>
       </div>
+
+      {/* Bottom Glow Line */}
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#ffb300] to-transparent animate-pulse"></div>
     </footer>
   );
 };

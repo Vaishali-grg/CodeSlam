@@ -1,5 +1,6 @@
 import { Trophy, Shield } from "lucide-react";
 import heroCocBright from "@/assets/hero-coc-bright.jpg";
+import bgImage from "@/assets/bg wallpaper.jpg";
 
 interface HeroProps {
   onViewLeaderboard: () => void;
@@ -11,7 +12,7 @@ const Hero = ({ onViewLeaderboard, onSuperuserLogin }: HeroProps) => {
     <section
       className="relative flex flex-col items-center justify-center text-center min-h-screen overflow-hidden"
       style={{
-        backgroundImage: `url(${heroCocBright})`,
+        backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -34,12 +35,12 @@ const Hero = ({ onViewLeaderboard, onSuperuserLogin }: HeroProps) => {
           >
             <Trophy className="w-6 h-6" /> View Leaderboard
           </button>
-          <button
+          {/* <button
             onClick={onSuperuserLogin}
             className="bg-gradient-to-b from-green-400 to-green-600 text-black font-extrabold px-10 py-4 rounded-xl border-2 border-green-700 shadow-[0_6px_0_#15803d] hover:translate-y-[3px] transition-all flex items-center gap-3 text-lg uppercase"
           >
             <Shield className="w-6 h-6" /> Superuser Login
-          </button>
+          </button> */}
         </div>
       </div>
     </section>
