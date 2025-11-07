@@ -55,12 +55,12 @@ const Footer = () => {
               Where coders clash in logic, speed, and innovation. Push your limits. Rewrite the rules.
             </p>
 
-            <a
+            {/* <a
               href="/rulebook"
               className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-[#3b2209] font-extrabold px-10 py-4 rounded-2xl text-xl border-4 border-yellow-300 shadow-[0_6px_0_#5c2d00,0_8px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(255,200,0,0.5)] transition-all"
             >
               View Rulebook
-            </a>
+            </a> */}
           </div>
 
           {/* Right Section */}

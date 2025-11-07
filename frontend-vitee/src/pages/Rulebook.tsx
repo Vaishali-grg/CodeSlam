@@ -132,9 +132,8 @@ const sections: Section[] = [
     title: 'Contact Information',
     lead: 'Organisers & support',
     points: [
-      'Sparsh Mittal — IEEE Chairperson: +91 82640 96826',
-      'Harsh Kumar Sahu — IEEE Vice Chairperson: +91 79858 45884',
-      'Khushleen Kaur Sekhon — WIE Vice Chairperson: +91 70874 73219',
+      'Khushleen Kaur Sekhon — IEEE-CIET Chairperson: +91 70874 73219',
+      'Karunya Gupta— IEEE-WIE Chairperson: +91 98059 46982',
       'Email: ieee@chitkara.edu.in'
     ],
     tip: 'Need urgent help? Use the Support button in the HUD or call any organiser above.'
