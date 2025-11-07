@@ -387,8 +387,8 @@ export default function RulebookPage() {
             <h4>Contact</h4>
             <h5 className="font-bold text-white text-sm mb-1">Event Cordinators</h5>
             <ul>
-              <p>Sparsh Mittal: <span className="text-[#ffb300]">+91 82640 96826</span></p>
-              <p>Harsh Kumar Sahu: <span className="text-[#ffb300]">+91 79858 45884</span></p>
+              <p>Khushleen Kaur Sekhon:<span className="text-[#ffb300]">+91 70874 73219</span></p>
+              <p>Karunya Gupta:<span className="text-[#ffb300]">+91 98059 46982</span></p>
               <p className="mt-1">
                 Email: <span className="text-[#ffb300]">ieee@chitkara.edu.in</span>
               </p>
